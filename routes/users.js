@@ -7,12 +7,12 @@ function route_user (req, res) {
   var path = url.parse(req.url).pathname;
   var flag = path.match(/[a-zA-Z]+$/)[0];
   model[flag](req, res);
-  // console.log(path)
+  console.log(path)
 }
 /* GET users listing. */
-// router.get('/', function (req, res, next) {
+router.get('/', function (req, res, next) {
 
-//   res.send('respond with a resource');
-// });
+  res.send('respond with a resource');
+});
 
 module.exports = route_user;

@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 function onRequest (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
   res.writeHead(200, { "Content-Type": "application/json" })
   // res.setHeader("Access-Control-Allow-Headers", "content-type,x-requested-with,Authorization, x-ui-request,lang");
   route(req, res)
