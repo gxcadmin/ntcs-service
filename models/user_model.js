@@ -31,24 +31,24 @@ function login (req, res) {
   // })
 
 
-  // db.connect((err) => {
-  //   if (err) throw err;
-  //   return
-  //   console.log('11y', err)
-  //   console.log('link at success')
-  // })
-  // db.query(USER_SQL, (err, result) => {
-  //   if (err) {
-  //     console.log('22y', err)
-  //   } else {
-  //     console.log(result)
-  //     res.end('查询成功')
-  //     res.end(result)
-  //     return
+  db.connect((err) => {
+    if (err) throw err;
+    return
+    console.log('11y', err)
+    console.log('link at success')
+  })
+  db.query(USER_SQL, (err, result) => {
+    if (err) {
+      console.log('22y', err)
+    } else {
+      console.log(result)
+      res.end('查询成功')
+      res.end(result)
+      return
 
-  //   }
+    }
 
-  // })
+  })
 }
 
 function add () { }

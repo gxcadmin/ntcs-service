@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var http = require('http');
 const port = 1337;
-const hostname = '192.168.1.105';
+const hostname = '192.168.1.107';
 
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 function onRequest (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  res.setHeader("Access-Control-Allow-Origin", "http://192.168.1.107:8080");
   res.writeHead(200, { "Content-Type": "application/json" })
   // res.setHeader("Access-Control-Allow-Headers", "content-type,x-requested-with,Authorization, x-ui-request,lang");
   route(req, res)

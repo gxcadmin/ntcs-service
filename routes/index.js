@@ -11,7 +11,7 @@ function route (req, res) {
   //req.setEncode("utf-8");
   var path = url.parse(req.url).pathname;
   console.log('index.js', path)
-  var flag = path.match(/(\/)([a-zA-Z]+)(\/)/);
+  var flag = path.match(/(\/)([a-zA-Z]+)(\/)/)[2];
   console.log('flag', flag)
   switch (flag) {
     case 'user': route_user(req, res); break;
