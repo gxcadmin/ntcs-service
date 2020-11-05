@@ -7,14 +7,14 @@ var route_user = require('./users');
 //   res.render('index', { title: 'Express' });
 // });
 
-function route (req, res) {
+function route(req, res) {
   //req.setEncode("utf-8");
   var path = url.parse(req.url).pathname;
   console.log('index.js', path)
-  var flag = path.match(/(\/)([a-zA-Z]+)(\/)/)[2];
+  var flag = path.match(/(\/)([a-zA-Z]+)(\/)/)[5];
   console.log('flag', flag)
   switch (flag) {
-    case 'user': route_user(req, res); break;
+    case 'api': route_user(req, res); break;
     case 'person': route_person(req, res); break;
     default: res.end(); break;
   }

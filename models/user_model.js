@@ -8,15 +8,15 @@ let USER_SQL = "SELECT * FROM user"
 
 
 
-function login (req, res) {
+function login(req, res) {
 
   var qStr = url.parse(req.url).query;
   console.log(qStr)
   var name = querystring.parse(qStr)["id"];
   var pwd = querystring.parse(qStr)["pwd"];
-  dbClient.connect(USER_SQL, function (err, db) {
-    var collection = db.collection('user');
-    collection.findOne({ name: name }, { pwd: true }, function (err, result) {
+  dbClient.connect(USER_SQL, function(err, db) {
+    var collection = dbClient.collection('user');
+    collection.findOne({ name: name }, { pwd: true }, function(err, result) {
       if (err) { console.log(err); return; }
       if (!result) res.end("用户名不存在...");
       else if (pwd == result.pwd) res.end("1");
@@ -31,30 +31,30 @@ function login (req, res) {
   // })
 
 
-  db.connect((err) => {
-    if (err) throw err;
-    return
-    console.log('11y', err)
-    console.log('link at success')
-  })
-  db.query(USER_SQL, (err, result) => {
-    if (err) {
-      console.log('22y', err)
-    } else {
-      console.log(result)
-      res.end('查询成功')
-      res.end(result)
-      return
+  // db.connect((err) => {
+  //   if (err) throw err;
+  //   return
+  //   console.log('11y', err)
+  //   console.log('link at success')
+  // })
+  // db.query(USER_SQL, (err, result) => {
+  //   if (err) {
+  //     console.log('22y', err)
+  //   } else {
+  //     console.log(result)
+  //     res.end('查询成功')
+  //     res.end(result)
+  //     return
 
-    }
+  //   }
 
-  })
+  // })
 }
 
-function add () { }
-function del () { }
-function update () { }
-function get () { }
+function add() { }
+function del() { }
+function update() { }
+function get() { }
 module.exports = {
   login: login,
   add: add,
