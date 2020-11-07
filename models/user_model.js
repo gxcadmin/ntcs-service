@@ -11,7 +11,7 @@ let USER_SQL = "SELECT * FROM user"
 function login(req, res) {
 
   var qStr = url.parse(req.url).query;
-  console.log(qStr)
+  console.log(qStr, 'qStr')
   var name = querystring.parse(qStr)["id"];
   var pwd = querystring.parse(qStr)["pwd"];
   dbClient.connect(USER_SQL, function(err, db) {
