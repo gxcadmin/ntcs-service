@@ -2,10 +2,20 @@ const mysql = require('mysql');
 
 exports.base = (sql, data, callback) => {
   const connection = mysql.createConnection({
-    host: '192.168.1.105',
+    host: '192.168.1.110',
     user: 'root',
     password: '123456',
-    database: 'ntcstest'
+    database: 'ntc_sql',
+    port: 5506,
+    // dialectOptions: {
+    //   socketPath: '/tmp/mysql.sock' // 指定套接字文件路径
+    // },
+
+    pool: {
+      max: 5,
+      min: 0,
+      idle: 10000
+    }
   });
   connection.connect();
 
